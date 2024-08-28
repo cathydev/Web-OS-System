@@ -1,10 +1,10 @@
+import WindowLayout from "../WindowLayout/WindowLayout";
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import Layout from "../components/Layout/Layout";
 
 const projectsElement = [
   {
@@ -58,13 +58,9 @@ const projectsElement = [
 ]
 
 
-const Projects = () => {
+const Projects = ({close}) => {
   return (
-    <Layout>
-      <Grid container spacing={2} sx={{ margin: 0, padding: "0 50px" }}>
-        <Grid item xs={12}>
-          <h1>Projects</h1>
-        </Grid>
+    <WindowLayout closeWindow={close}>
         {
           projectsElement.map((item, index) => (
             <Grid item xs={12} md={4} key={index}>
@@ -72,7 +68,7 @@ const Projects = () => {
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="140"
+                    height="120"
                     image="/web.webp"
                     alt="green iguana"
                   />
@@ -89,8 +85,7 @@ const Projects = () => {
             </Grid>
           ))
         }
-      </Grid>
-    </Layout>
+    </WindowLayout>
   );
 };
 
