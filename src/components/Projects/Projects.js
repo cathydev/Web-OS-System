@@ -10,14 +10,14 @@ const projectsElement = [
   {
     "title": "McLovin ID Illustration",
     "description": "An illustration made with CSS",
-    "image": "/project1.png",
+    "image": "Images/project1.png",
     "url": "https://mclovin-id-generator.vercel.app/",
     "tags": ["etiqueta1", "etiqueta2", "etiqueta3"]
   },
   {
     "title": "Link Shortener",
     "description": "Shorten your URLs",
-    "image": "/project2.png",
+    "image": "Images/project2.png",
     "url": "https://react-link-shortener.vercel.app/",
     "category": "Categoría del elemento 2",
     "tags": ["etiqueta4", "etiqueta5", "etiqueta6"]
@@ -25,7 +25,7 @@ const projectsElement = [
   {
     "title": "Landing Page",
     "description": "Landing Page for Nintendo Switch",
-    "image": "/project3.png",
+    "image": "Images/project3.png",
     "url": "https://cathydev.github.io/Landing-Page-Nintendo-Switch/",
     "category": "Categoría del elemento 3",
     "tags": ["etiqueta7", "etiqueta8", "etiqueta9"]
@@ -33,7 +33,7 @@ const projectsElement = [
   {
     "title": "Título del elemento 4",
     "description": "Descripción del elemento 4",
-    "image": "/web.webp",
+    "image": "Images/web.webp",
     "url": "https://www.ejemplo.com/elemento4",
     "category": "Categoría del elemento 4",
     "tags": ["etiqueta10", "etiqueta11", "etiqueta12"]
@@ -41,7 +41,7 @@ const projectsElement = [
   {
     "title": "Título del elemento 5",
     "description": "Descripción del elemento 5",
-    "image": "/web.webp",
+    "image": "Images/web.webp",
     "url": "https://www.ejemplo.com/elemento5",
     "category": "Categoría del elemento 5",
     "tags": ["etiqueta13", "etiqueta14", "etiqueta15"]
@@ -49,7 +49,7 @@ const projectsElement = [
   {
     "title": "Título del elemento 6",
     "description": "Descripción del elemento 6",
-    "image": "/web.webp",
+    "image": "Images/web.webp",
     "url": "https://www.ejemplo.com/elemento6",
     "category": "Categoría del elemento 6",
     "tags": ["etiqueta16", "etiqueta17", "etiqueta18"]

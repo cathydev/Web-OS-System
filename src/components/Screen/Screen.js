@@ -4,11 +4,11 @@ import Projects from "../Projects/Projects";
 import AboutMe from "../AboutMe/AboutMe";
 import Tooltip from '@mui/material/Tooltip';
 import Image from 'next/image';
-import portrait from "../../../public/portrait.svg";
-import heart from "../../../public/heart.svg";
-import download from "../../../public/download.svg";
-import projects from "../../../public/projects.svg";
-import email from "../../../public/email.svg";
+import portrait from "../../../public/Icons/portrait.svg";
+import heart from "../../../public/Icons/heart.svg";
+import download from "../../../public/Icons/download.svg";
+import projects from "../../../public/Icons/projects.svg";
+import email from "../../../public/Icons/email.svg";
 
 const Computer = () => {
     const [activeComponent, setActiveComponent] = useState(null);
