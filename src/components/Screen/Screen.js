@@ -17,6 +17,16 @@ const Computer = () => {
         setActiveComponent(activeComponent === component ? null : component);
     };
 
+    const onButtonClick = () => {
+        const pdfFilename = "CV_Catherine.pdf";
+        const link = document.createElement("a");
+        link.href = pdfFilename;
+        link.download = pdfFilename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     return (
         <div className="container">
             <div className="base"> 
@@ -67,6 +77,7 @@ const Computer = () => {
                                         alt="download icon"
                                         width={50}
                                         height={50}
+                                        onClick={onButtonClick}
                                     />
                                 </Tooltip>
                                 <div>CV</div>
