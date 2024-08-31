@@ -40,8 +40,8 @@ const Computer = () => {
                                     <Image
                                         src={portrait}
                                         alt="My custom SVG"
-                                        width={50}
-                                        height={50}
+                                        width={60}
+                                        height={60}
                                         onClick={() => toggleComponent('about')}
                                     />
                                 </Tooltip>
@@ -52,8 +52,8 @@ const Computer = () => {
                                     <Image
                                         src={projects}
                                         alt="projects illustration"
-                                        width={50}
-                                        height={50}
+                                        width={60}
+                                        height={60}
                                         onClick={() => toggleComponent('projects')}
                                     />
                                 </Tooltip>
@@ -64,8 +64,8 @@ const Computer = () => {
                                 <Image
                                         src={email}
                                         alt="email illustration"
-                                        width={50}
-                                        height={50}
+                                        width={60}
+                                        height={60}
                                     />
                                 </Tooltip>
                                 <div>Contact me</div>
@@ -75,8 +75,8 @@ const Computer = () => {
                                     <Image
                                         src={download}
                                         alt="download icon"
-                                        width={50}
-                                        height={50}
+                                        width={60}
+                                        height={60}
                                         onClick={onButtonClick}
                                     />
                                 </Tooltip>
@@ -87,8 +87,8 @@ const Computer = () => {
                                     <Image
                                         src={heart}
                                         alt="a heart"
-                                        width={50}
-                                        height={50}
+                                        width={60}
+                                        height={60}
                                     />
                                 </Tooltip>
                                 <div>Thank you</div>

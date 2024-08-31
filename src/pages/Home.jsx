@@ -22,7 +22,7 @@ const Home = () => {
   };
 
   return (
-    <Layout>
+    <>
       {loading ? (
         <Box sx={{ background: "lightblue", width: "100%", height: "100VH", display: "flex", alignItems: "center", justifyContent: "center"}}>
           <CircularProgress />
@@ -32,7 +32,7 @@ const Home = () => {
       ) : (
         <Login mount={handleToggleMount} />
       )}
-    </Layout>
+    </>
   );
 };
 
