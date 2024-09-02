@@ -57,13 +57,13 @@ const projectsElement = [
 ]
 
 
-const Projects = ({close}) => {
+const Projects = ({ close }) => {
   return (
     <WindowLayout closeWindow={close}>
         {
           projectsElement.map((item, index) => (
-            <Grid item xs={12} md={4} key={index}>
-              <Card sx={{ maxWidth: 345 }}>
+            <Grid item xs={12} sm={6} md={4} key={index} sx={{padding: { xs: "0 16px", lg: 0}, margin: { xs: "0 16px", sm: 0} }}>
+              <Card sx={{ maxWidth: { xs: "-webkit-fill-available", sm: "220", md: 380 } }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"

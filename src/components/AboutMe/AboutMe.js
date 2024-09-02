@@ -8,7 +8,7 @@ import portrait from "../../../public/Icons/portrait.svg";
 const AboutMe = ({ close }) => {
   return (
     <WindowLayout closeWindow={close}>
-      <Grid item xs={12} className={styles.container} sx={{flexDirection: "column"}}>
+      <Grid item xs={12} className={styles.container} sx={{flexDirection: "column", padding: "0 16px"}}>
         <Image
           src={portrait}
           alt="Catherine pic"
