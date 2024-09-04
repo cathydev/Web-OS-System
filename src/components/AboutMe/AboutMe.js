@@ -23,17 +23,8 @@ const AboutMe = ({ close }) => {
           contribute to new projects using my current skills and grow as a professional
         </span>
         <span>
-          HTML - CSS- JS- TS - REACT - NEXT - CYPRESS - SQL - PYTHON- JAVA - EXCEL - JQUERY
+          HTML - CSS - JAVASCRIPT - TYPESCRIPT - REACT.JS - NEXT.JS - CYPRESS - SQL - PYTHON - JAVA - EXCEL - JQUERY
         </span>
-{/*         <h1>Skills</h1>
-        <ul>
-          <li>Html</li>
-          <li>CSS</li>
-          <li>Javascript</li>
-          <li>Typescript</li>
-          <li>React</li>
-          <li>Next</li>
-        </ul> */}
       </Grid>
     </WindowLayout>
   );

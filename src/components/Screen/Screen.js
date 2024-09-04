@@ -2,6 +2,8 @@ import { useState } from 'react';
 import styles from "../../styles/screen.module.css";
 import Projects from "../Projects/Projects";
 import AboutMe from "../AboutMe/AboutMe";
+import ContactMe from "../ContactMe/ContactMe";
+import ThankYou from "../ThankYou/ThankYou";
 import Tooltip from '@mui/material/Tooltip';
 import Image from 'next/image';
 import portrait from "../../../public/Icons/portrait.svg";
@@ -33,6 +35,8 @@ const Computer = () => {
                 <div className={styles.screen}>
                     {activeComponent === 'projects' && <Projects close={() => toggleComponent('projects')} />}
                     {activeComponent === 'about' && <AboutMe close={() => toggleComponent('about')} />}
+                    {activeComponent === 'contact' && <ContactMe close={() => toggleComponent('contact')} />}
+                    {activeComponent === 'thanks' && <ThankYou close={() => toggleComponent('thanks')} />}
                     <div>
                         <ul className={styles.apps}>
                             <li>
@@ -66,6 +70,7 @@ const Computer = () => {
                                         alt="email illustration"
                                         width={60}
                                         height={60}
+                                        onClick={() => toggleComponent('contact')}
                                     />
                                 </Tooltip>
                                 <div>Contact me</div>
@@ -89,6 +94,7 @@ const Computer = () => {
                                         alt="a heart"
                                         width={60}
                                         height={60}
+                                        onClick={() => toggleComponent('thanks')}
                                     />
                                 </Tooltip>
                                 <div>Thank you</div>
