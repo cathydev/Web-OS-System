@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Grid, TextField, Button, Container, Box } from '@mui/material';
+import { Grid, TextField, Button, Container, Box, Snackbar, Alert } from '@mui/material';
 import WindowLayout from "../WindowLayout/WindowLayout";
 import styles from "../../styles/ContactMe.module.css";
 
@@ -7,36 +7,46 @@ const ContactMe = ({ close }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [open, setOpen] = useState(false);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-    
+
         try {
-          const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: name.trim(), email: email.trim(), message }),
-          });
-    
-          if (response.ok) {
-            setSuccess(true);
-            setError(null);
-          } else {
-            setError('Error al enviar el formulario');
-          }
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: name.trim(), email: email.trim(), message }),
+            });
+
+            if (response.ok) {
+                setSuccess(true);
+                setError(false);
+            } else {
+                setError(true);
+            }
         } catch (error) {
-          setError('Error al enviar el formulario');
+            setError(true);
         }
-      };
+        setOpen(true)
+    };
+
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
 
     return (
         <WindowLayout closeWindow={close}>
             <Box className={styles.container}>
                 <Grid item xs={12} md={6} sx={{ padding: "16px", flex: "none" }}>
-                <h1>Contact Me! Let&apos;s chat about your project or just connect!</h1>
-                <span> You can reach me at <a href="mailto:catherinemejiasdsilva@gmail.com">catherinemejiasdsilva@gmail.com</a> 💫</span>
+                    <h1>Contact Me! Let&apos;s chat about your project or just connect!</h1>
+                    <span> You can reach me at <a href="mailto:catherinemejiasdsilva@gmail.com">catherinemejiasdsilva@gmail.com</a> 💫</span>
                 </Grid>
                 <Grid item xs={12} md={6} sx={{ padding: "16px", flex: "none" }}>
                     <Container maxWidth="sm">
@@ -59,7 +69,6 @@ const ContactMe = ({ close }) => {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <TextField
-
                                 label="Message"
                                 variant="outlined"
                                 multiline
@@ -77,6 +86,24 @@ const ContactMe = ({ close }) => {
                             >
                                 Submit
                             </Button>
+                            {success && <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+                                <Alert
+                                    onClose={handleClose}
+                                    severity="success"
+                                    variant="filled"
+                                    sx={{ width: '100%' }}
+                                >
+                                    Thanks for contacting me!
+                                </Alert></Snackbar>}
+                            {error && <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+                                <Alert
+                                    onClose={handleClose}
+                                    severity="error"
+                                    variant="filled"
+                                    sx={{ width: '100%' }}
+                                >
+                                    There was an error sending the message 
+                                </Alert></Snackbar>}
                         </form>
                     </Container>
                 </Grid>
