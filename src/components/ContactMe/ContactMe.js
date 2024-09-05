@@ -58,7 +58,7 @@ const ContactMe = ({ close }) => {
                                 type="submit"
                                 variant="contained"
                                 color="primary"
-
+                                disabled
                                 fullWidth
                             >
                                 Submit
