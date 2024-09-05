@@ -7,14 +7,29 @@ const ContactMe = ({ close }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(false);
 
-    const handleSubmit
-        = (event) => {
-            event.preventDefault();
-            console.log('Name:', name);
-            console.log('Email:', email);
-            console.log('Message:', message);
-        };
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+    
+        try {
+          const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name.trim(), email: email.trim(), message }),
+          });
+    
+          if (response.ok) {
+            setSuccess(true);
+            setError(null);
+          } else {
+            setError('Error al enviar el formulario');
+          }
+        } catch (error) {
+          setError('Error al enviar el formulario');
+        }
+      };
 
     return (
         <WindowLayout closeWindow={close}>
@@ -58,7 +73,6 @@ const ContactMe = ({ close }) => {
                                 type="submit"
                                 variant="contained"
                                 color="primary"
-                                disabled
                                 fullWidth
                             >
                                 Submit
