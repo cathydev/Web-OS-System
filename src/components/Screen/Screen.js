@@ -1,34 +1,41 @@
 import { useState } from 'react';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Tooltip from '@mui/material/Tooltip';
 import styles from "../../styles/screen.module.css";
 import Projects from "../Projects/Projects";
 import AboutMe from "../AboutMe/AboutMe";
 import ContactMe from "../ContactMe/ContactMe";
 import ThankYou from "../ThankYou/ThankYou";
-import Tooltip from '@mui/material/Tooltip';
 import Image from 'next/image';
 import portrait from "../../../public/Icons/portrait.svg";
 import heart from "../../../public/Icons/heart.svg";
 import download from "../../../public/Icons/download.svg";
 import projects from "../../../public/Icons/projects.svg";
 import email from "../../../public/Icons/email.svg";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { onButtonClick } from "../../utils";
+
 
 const Computer = () => {
     const [activeComponent, setActiveComponent] = useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
 
     const toggleComponent = (component) => {
         setActiveComponent(activeComponent === component ? null : component);
     };
 
-    const onButtonClick = () => {
-        const pdfFilename = "CV_Catherine.pdf";
-        const link = document.createElement("a");
-        link.href = pdfFilename;
-        link.download = pdfFilename;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
     };
-    const items = [
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const icons = [
         {
             title: 'About Me',
             src: portrait,
@@ -71,7 +78,7 @@ const Computer = () => {
                     {activeComponent === 'Thank You' && <ThankYou close={() => toggleComponent('Thank You')} />}
                     <div>
                         <ul className={styles.apps}>
-                            {items.map((item, index) => (
+                            {icons.map((item, index) => (
                                 <li key={index}>
                                     <Tooltip title={item.title}>
                                         <Image
@@ -94,10 +101,40 @@ const Computer = () => {
                                 alt="menu icon"
                                 width={35}
                                 height={35}
+                                aria-controls={open ? 'basic-menu' : undefined}
+                                aria-haspopup="true"
+                                aria-expanded={open ? 'true' : undefined}
+                                onClick={handleClick}
                             />
+                            <Menu
+                                id="basic-menu"
+                                anchorEl={anchorEl}
+                                open={open}
+                                onClose={handleClose}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'center',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'center',
+                                }}
+                                MenuListProps={{
+                                    'aria-labelledby': 'basic-button',
+                                }}
+                            >
+                                <MenuItem onClick={handleClose}>
+                                    <LinkedInIcon />
+                                    LinkedIn
+                                </MenuItem>
+                                <MenuItem onClick={handleClose}>
+                                    <GitHubIcon />
+                                    GitHub
+                                </MenuItem>
+                            </Menu>
                             {activeComponent &&
                                 <>
-                                    {items.map((item, index) => (
+                                    {icons.map((item, index) => (
                                         item.title === activeComponent && (
                                             <div key={index} className={styles.open_window}>
                                                 <Tooltip title={item.title}>
@@ -109,7 +146,7 @@ const Computer = () => {
                                                         onClick={item.onClick}
                                                     />
                                                 </Tooltip>
-                                               <span>{item.title}</span> 
+                                                <span>{item.title}</span>
                                             </div>
                                         )
                                     ))}
