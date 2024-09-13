@@ -22,9 +22,6 @@ const AboutMe = ({ close }) => {
           While I consider that I&apos;ve gained a lot of knowledge and experience in my current job I am always looking for new opportunities that will allow me to keep learning new things,
           contribute to new projects using my current skills and grow as a professional
         </span>
-        <span>
-          HTML - CSS - JAVASCRIPT - TYPESCRIPT - REACT.JS - NEXT.JS - CYPRESS - SQL - PYTHON - JAVA - EXCEL - JQUERY
-        </span>
       </Grid>
     </WindowLayout>
   );
