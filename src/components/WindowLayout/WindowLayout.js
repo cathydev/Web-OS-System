@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 
 export default function WindowLayout({ children, closeWindow }) {
     const [isMaximized, setIsMaximized] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      const isMobileDevice = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+      setIsMobile(isMobileDevice);
+    }, []);
 
     const handleMaximize = () => {
         setIsMaximized(!isMaximized);
@@ -18,7 +24,7 @@ export default function WindowLayout({ children, closeWindow }) {
                 </div>
                 <div className="controls">
                     <button className="minimize"></button>
-                    <button className="maximize" onClick={handleMaximize}></button>
+                    <button className="maximize" onClick={handleMaximize} disabled={isMobile}></button>
                     <button className="close" onClick={closeWindow}></button>
                 </div>
             </Grid>
