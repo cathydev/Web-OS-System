@@ -47,7 +47,7 @@ const Computer = () => {
             coordinateGetter: sortableKeyboardCoordinates,
         }),
     );
-    
+
     const handleDragEnd = (ev) => {
         const component = activeComponent.find((x) => x.id === ev.active.id);
         component.position.x += ev.delta.x;
@@ -71,7 +71,7 @@ const Computer = () => {
             title: 'About Me',
             src: portrait,
             alt: 'My custom SVG',
-            onClick: () => toggleComponent('About Me'),
+            onClick: () => setActiveComponent([{ id: 'About Me', position: { x: 0, y: 0 } }]),
         },
         {
             title: 'Projects',
@@ -83,7 +83,7 @@ const Computer = () => {
             title: 'Contact Me',
             src: email,
             alt: 'email illustration',
-            onClick: () => toggleComponent('Contact Me'),
+            onClick: () => setActiveComponent([{ id: 'Contact Me', position: { x: 0, y: 0 } }]),
         },
         {
             title: 'Download CV',
@@ -95,7 +95,7 @@ const Computer = () => {
             title: 'Thank You',
             src: heart,
             alt: 'a heart',
-            onClick: () => toggleComponent('Thank You'),
+            onClick: () => setActiveComponent([{ id: 'Thank You', position: { x: 0, y: 0 } }]),
         },
     ];
 
@@ -115,7 +115,10 @@ const Computer = () => {
                                     key={activeComponent[0].id}
                                     id={activeComponent[0].id}
                                 >
-                                    <Projects close={() => toggleComponent("Projects")} />
+                                    {activeComponent[0].id === 'Projects' && <Projects close={() => toggleComponent('Projects')} />}
+                                    {activeComponent[0].id === 'About Me' && <AboutMe close={() => toggleComponent('About Me')} />}
+                                    {activeComponent[0].id === 'Contact Me' && <ContactMe close={() => toggleComponent('Contact Me')} />}
+                                    {activeComponent[0].id === 'Thank You' && <ThankYou close={() => toggleComponent('Thank You')} />}
                                 </Draggable>
                             }
                             <div>
