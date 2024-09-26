@@ -16,13 +16,13 @@ export default function WindowLayout({ children, closeWindow }) {
     return (
         <Grid container spacing={2} className={styles.container} sx={{ ...gridSize }}>
             <Grid item xs={12} className={styles.nav}>
-                <div className="title">
-                    <span className='window-title'>Portfolio</span>
+                <div className={styles.title}>
+                    <span className={styles.window_title}>Portfolio</span>
                 </div>
-                <div className="controls">
-                    <button className="minimize"></button>
-                    <button className="maximize" onClick={handleMaximize} disabled={isMobile}></button>
-                    <button className="close" onClick={closeWindow}></button>
+                <div className={styles.controls}>
+                    <button className={styles.minimize}>-</button>
+                    <button className={styles.maximize} onClick={handleMaximize} disabled={isMobile}>▭</button>
+                    <button className={styles.close} onClick={closeWindow}>x</button>
                 </div>
             </Grid>
             {children}
