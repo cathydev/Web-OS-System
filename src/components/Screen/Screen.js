@@ -15,11 +15,11 @@ import projects from "../../../public/Icons/projects.svg";
 import email from "../../../public/Icons/email.svg";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { onButtonClick } from "../../utils";
+import { onButtonClick } from "../../utils/utils";
 import { DndContext, useSensor, useSensors, MouseSensor, TouchSensor, KeyboardSensor } from "@dnd-kit/core";
 import { sortableKeyboardCoordinates } from "@dnd-kit/sortable";
-import { Draggable } from "../../Draggable";
-import { Droppable } from "../../Droppable";
+import { Draggable } from "../../utils/Draggable";
+import { Droppable } from "../../utils/Droppable";
 
 
 const Computer = () => {

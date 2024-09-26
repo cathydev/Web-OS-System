@@ -6,15 +6,12 @@ const CustomStyle = {
 };
 
 export function Droppable({ children }) {
-  const { isOver, setNodeRef } = useDroppable({
+  const { setNodeRef } = useDroppable({
     id: "droppable"
   });
-  const style = {
-    color: isOver ? "green" : undefined
-  };
 
   return (
-    <div ref={setNodeRef} style={{ ...style, ...CustomStyle }}>
+    <div ref={setNodeRef} style={{ ...CustomStyle }}>
       {children}
     </div>
   );

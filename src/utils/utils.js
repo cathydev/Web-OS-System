@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-
 export const onButtonClick = () => {
     const pdfFilename = "CV_Catherine.pdf";
     const link = document.createElement("a");
@@ -21,4 +20,3 @@ export const IsItMobile = () => {
   
     return isMobile;
   };
-

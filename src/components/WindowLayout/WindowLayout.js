@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Grid from '@mui/material/Grid';
-import { IsItMobile } from '@/utils';
+import { IsItMobile } from '@/utils/utils';
 
 export default function WindowLayout({ children, closeWindow }) {
     const [isMaximized, setIsMaximized] = useState(true);
