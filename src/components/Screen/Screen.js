@@ -23,7 +23,7 @@ import { Droppable } from "../../utils/Droppable";
 
 
 const Computer = () => {
-    const [activeComponent, setActiveComponent] = useState([]);
+    const [activeComponent, setActiveComponent] = useState([{ id: 'Projects', position: { x: 0, y: 0 } }]);
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
