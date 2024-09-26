@@ -1,9 +1,8 @@
 import Grid from '@mui/material/Grid';
-import styles from "../../styles/AboutMe.module.css";
+import styles from "@/styles/AboutMe.module.css";
 import WindowLayout from "../WindowLayout/WindowLayout";
 import Image from 'next/image';
 import portrait from "../../../public/Icons/portrait.svg";
-
 
 const AboutMe = ({ close }) => {
   return (

@@ -1,14 +1,9 @@
 import WindowLayout from "../WindowLayout/WindowLayout";
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { Grid, Card, CardContent, CardMedia, Typography, CardActionArea, Chip } from '@mui/material';
 
 const projectsElement = [
   {
-    "title": "McLovin ID Illustration",
+    "title": "McLovin ID",
     "description": "An illustration made with CSS",
     "image": "Images/project1.png",
     "url": "https://mclovin-id-generator.vercel.app/",
@@ -56,13 +51,13 @@ const projectsElement = [
   }
 ]
 
-
 const Projects = ({ close }) => {
   return (
     <WindowLayout closeWindow={close}>
+      <Grid container spacing={2} sx={{ padding: "20px", background: "#f0f8ff" }}>
         {
           projectsElement.map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index} sx={{padding: { xs: "0 16px", lg: 0}, margin: { xs: "0 16px", sm: 0} }}>
+            <Grid item xs={12} sm={6} md={4} key={index} sx={{ padding: { xs: "0 16px", lg: 0 }, margin: { xs: "0 16px", sm: 0 } }}>
               <Card sx={{ maxWidth: { xs: "-webkit-fill-available", sm: "220", md: 380 } }}>
                 <CardActionArea>
                   <CardMedia
@@ -78,12 +73,18 @@ const Projects = ({ close }) => {
                     <Typography variant="body2" color="text.secondary">
                       {item.description}
                     </Typography>
+                    <div>
+                      {item.tags.map((tag, tagIndex) => (
+                        <Chip key={tagIndex} label={tag} sx={{margin: "3px 3px 0 0"}} />
+                      ))}
+                    </div>
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
           ))
         }
+      </Grid>
     </WindowLayout>
   );
 };
