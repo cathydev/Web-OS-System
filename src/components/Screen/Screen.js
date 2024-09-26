@@ -16,7 +16,8 @@ import email from "../../../public/Icons/email.svg";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { onButtonClick } from "../../utils";
-import { DndContext } from "@dnd-kit/core";
+import { DndContext, useSensor, useSensors, MouseSensor, TouchSensor, KeyboardSensor } from "@dnd-kit/core";
+import { sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import { Draggable } from "../../Draggable";
 import { Droppable } from "../../Droppable";
 
@@ -30,6 +31,23 @@ const Computer = () => {
         setActiveComponent(activeComponent[0].id === component ? [] : component);
     };
 
+    const sensors = useSensors(
+        useSensor(MouseSensor, {
+            activationConstraint: {
+                distance: 8,
+            },
+        }),
+        useSensor(TouchSensor, {
+            activationConstraint: {
+                delay: 200,
+                tolerance: 6,
+            },
+        }),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates,
+        }),
+    );
+    
     const handleDragEnd = (ev) => {
         const component = activeComponent.find((x) => x.id === ev.active.id);
         component.position.x += ev.delta.x;
@@ -82,7 +100,7 @@ const Computer = () => {
     ];
 
     return (
-        <DndContext onDragEnd={handleDragEnd}>
+        <DndContext onDragEnd={handleDragEnd} sensors={sensors}>
             <Droppable>
                 <div className="container">
                     <div className="base">
@@ -97,7 +115,7 @@ const Computer = () => {
                                     key={activeComponent[0].id}
                                     id={activeComponent[0].id}
                                 >
-                                    <Projects close={() => toggleComponent('Projects')} />
+                                    <Projects close={() => toggleComponent("Projects")} />
                                 </Draggable>
                             }
                             <div>
