@@ -21,7 +21,7 @@ export default function WindowLayout({ children, closeWindow }) {
                 </div>
                 <div className={styles.controls}>
                     <button className={styles.minimize}>-</button>
-                    <button className={styles.maximize} onClick={handleMaximize} disabled={isMobile}>▭</button>
+                    <button className={styles.maximize} onClick={handleMaximize} disabled={isMobile}>□</button>
                     <button className={styles.close} onClick={closeWindow}>x</button>
                 </div>
             </Grid>

@@ -22,7 +22,6 @@ export function Draggable({ id, children, styles }) {
 
   return (
     <div
-      ref={setNodeRef}
       style={{ ...style, ...CustomStyle, ...styles }}
       {...listeners}
       {...attributes}
