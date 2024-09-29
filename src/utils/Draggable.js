@@ -2,7 +2,7 @@ import { useDraggable } from "@dnd-kit/core";
 import { IsItMobile } from "./utils";
 
 const CustomStyle = {
-  width: "100%",
+  width: "auto",
   height: "inherit",
 };
 
