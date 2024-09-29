@@ -11,7 +11,7 @@ export default function WindowLayout({ children, closeWindow, maximizeWindow }) 
         setIsMaximized(!isMaximized);
     };
 
-    const gridSize = isMaximized && !isMobile ? { width: '70vw', left: "19vw", height: '80%', top: "7%" } : { width: '100%', height: 'calc(100% - 35px)', right: "0", bottom: "35px" };
+    const gridSize = isMaximized && !isMobile ? { width: '70vw', left: "19vw", height: '80%', top: "7%" } : { width: 'calc(100vw - 24px)', height: 'calc(100% - 35px)', left: "100%", bottom: "35px", marginLeft: "0" };
 
     return (
         <Grid container spacing={2} className={styles.container} sx={{ ...gridSize }}>
