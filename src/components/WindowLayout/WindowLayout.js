@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import { IsItMobile } from '@/utils/utils';
 import styles from "@/styles/WindowsLayout.module.css"
 
-export default function WindowLayout({ children, closeWindow }) {
+export default function WindowLayout({ children, closeWindow, maximizeWindow }) {
     const [isMaximized, setIsMaximized] = useState(true);
     const isMobile = IsItMobile();
 
@@ -21,7 +21,7 @@ export default function WindowLayout({ children, closeWindow }) {
                 </div>
                 <div className={styles.controls}>
                     <button className={styles.minimize}>-</button>
-                    <button className={styles.maximize} onClick={handleMaximize} disabled={isMobile}>□</button>
+                    <button className={styles.maximize} onClick={() => { handleMaximize(); maximizeWindow(); }} disabled={isMobile}>□</button>
                     <button className={styles.close} onClick={closeWindow}>x</button>
                 </div>
             </Grid>

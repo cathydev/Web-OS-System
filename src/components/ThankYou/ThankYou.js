@@ -3,9 +3,9 @@ import WindowLayout from "../WindowLayout/WindowLayout";
 import styles from "../../styles/ThankYou.module.css";
 import Image from 'next/image';
 
-const ContactMe = ({ close }) => {
+const ContactMe = ({ close, maximize }) => {
     return (
-        <WindowLayout closeWindow={close}>
+        <WindowLayout closeWindow={close} maximizeWindow={maximize}>
             <Grid item xs={12} className={styles.container} sx={{ flexDirection: "column", padding: "0 16px" }}>
                 <h1>
                     Thank You!

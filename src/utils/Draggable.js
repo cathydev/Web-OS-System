@@ -6,12 +6,12 @@ const CustomStyle = {
   height: "inherit",
 };
 
-export function Draggable({ id, children, styles }) {
+export function Draggable({ id, children, styles, disabled }) {
   const isMobile = IsItMobile();
 
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id,
-    disabled: isMobile ? true : false
+    disabled: disabled || isMobile ? true : false
   });
 
   const style = transform

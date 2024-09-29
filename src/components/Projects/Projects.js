@@ -2,7 +2,7 @@ import { useState, useEffect} from "react";
 import WindowLayout from "../WindowLayout/WindowLayout";
 import { Grid, Card, CardContent, CardMedia, Typography, CardActionArea, Chip, CircularProgress } from '@mui/material';
 
-const Projects = ({ close }) => {
+const Projects = ({ close, maximize }) => {
   const [isHoveredId, setIsHoveredId] = useState('');
   const [projectsData, setProjectsData] = useState();
 
@@ -32,7 +32,7 @@ const Projects = ({ close }) => {
   }
 
   return (
-    <WindowLayout closeWindow={close}>
+    <WindowLayout closeWindow={close} maximizeWindow={maximize}>
       <Grid container spacing={2} sx={{ padding: "20px", background: "#f0f8ff", height: "100vh" }}>
         {
           projectsData ?

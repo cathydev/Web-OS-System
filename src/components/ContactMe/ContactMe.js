@@ -3,7 +3,7 @@ import { Grid, TextField, Button, Container, Box, Snackbar, Alert } from '@mui/m
 import WindowLayout from "../WindowLayout/WindowLayout";
 import styles from "../../styles/ContactMe.module.css";
 
-const ContactMe = ({ close }) => {
+const ContactMe = ({ close, maximize }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
@@ -42,7 +42,7 @@ const ContactMe = ({ close }) => {
     };
 
     return (
-        <WindowLayout closeWindow={close}>
+        <WindowLayout closeWindow={close} maximizeWindow={maximize}>
             <Box className={styles.container}>
                 <Grid item xs={12} md={6} sx={{ padding: "16px", flex: "none" }}>
                     <h1>Contact Me! Let&apos;s chat about your project or just connect!</h1>
