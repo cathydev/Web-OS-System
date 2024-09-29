@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Login from "../components/Login/Login";
-import Layout from "../components/Layout/Layout";
 import Screen from "../components/Screen/Screen";
 import { Box, CircularProgress } from "@mui/material";
 

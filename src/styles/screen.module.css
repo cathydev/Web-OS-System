@@ -33,7 +33,6 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  border-radius: 3px;
 }
 
 .taskbarContent {
@@ -45,7 +44,7 @@
 .open_window {
   width: auto;
   padding: 4px;
-  background: #907e7e63;
+  background: #744f4f;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
