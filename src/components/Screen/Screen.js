@@ -102,6 +102,7 @@ const Computer = () => {
                                         position: "absolute",
                                         left: isMaximized ? "0px" : `${activeComponent[0].position.x}px`,
                                         top: isMaximized ? "0px" : `${activeComponent[0].position.y}px`,
+                                        zIndex: "100"
                                     }}
                                     key={activeComponent[0].id}
                                     id={activeComponent[0].id}

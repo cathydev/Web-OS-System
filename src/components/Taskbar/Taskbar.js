@@ -5,6 +5,7 @@ import Tooltip from '@mui/material/Tooltip';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Image from 'next/image';
+import WidgetsRoundedIcon from '@mui/icons-material/WidgetsRounded';
 import styles from '../../styles/Taskbar.module.css';
 
 export default function Taskbar({ icons, activeComponent }) {
@@ -22,11 +23,9 @@ export default function Taskbar({ icons, activeComponent }) {
     return (
         <div className={styles.taskbar}>
             <div className={styles.taskbarContent}>
-                <Image
-                    src={"/Icons/menu.png"}
-                    alt="menu icon"
-                    width={35}
-                    height={35}
+                <WidgetsRoundedIcon
+                    fontSize='large'
+                    sx={{ cursor: "pointer", color: "#d3d3d3", marginRight: "5px" }}
                     aria-controls={open ? 'basic-menu' : undefined}
                     aria-haspopup="true"
                     aria-expanded={open ? 'true' : undefined}

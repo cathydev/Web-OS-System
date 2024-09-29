@@ -15,8 +15,9 @@
 
 .open_window {
   width: auto;
-  padding: 4px;
-  background: #744f4f;
+  padding: 5px 10px;
+  background: #d3d3d3ad;
+  color: #000;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
