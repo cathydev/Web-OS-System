@@ -23,6 +23,9 @@ const ContactMe = ({ close, maximize }) => {
 
             if (response.ok) {
                 setSuccess(true);
+                setMessage('')
+                setEmail('')
+                setName('')
                 setError(false);
             } else {
                 setError(true);
@@ -32,7 +35,6 @@ const ContactMe = ({ close, maximize }) => {
         }
         setOpen(true)
     };
-
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
