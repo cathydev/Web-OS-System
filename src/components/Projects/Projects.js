@@ -1,6 +1,7 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import WindowLayout from "../WindowLayout/WindowLayout";
-import { Grid, Card, CardContent, CardMedia, Typography, CardActionArea, Chip, CircularProgress } from '@mui/material';
+import { Grid, Card, CardContent, CardMedia, Typography, CardActionArea, Chip, CircularProgress, CardHeader, Box } from '@mui/material';
+import Link from "next/link";
 
 const Projects = ({ close, maximize }) => {
   const [isHoveredId, setIsHoveredId] = useState('');
@@ -33,45 +34,50 @@ const Projects = ({ close, maximize }) => {
 
   return (
     <WindowLayout closeWindow={close} maximizeWindow={maximize}>
-      <Grid container spacing={2} sx={{ padding: "20px", background: "#f0f8ff", height: "100vh" }}>
+      <Grid container spacing={3} sx={{ padding: "20px", background: "#f0f8ff", height: projectsData ? "auto" : "100%" }}>
         {
           projectsData ?
             projectsData.map((item, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index} sx={{ padding: { xs: "0 16px", lg: 0 }, margin: { xs: "0 16px", sm: 0 } }}>
-                <Card sx={{ maxWidth: { xs: "-webkit-fill-available", sm: "220", md: 390 } }}>
-                  <CardActionArea
-                    onMouseOver={handleMouseOver(item.title)}
-                    onMouseOut={handleMouseOut}
-                  >
-                    {isHoveredId == item.title ?
-                      <CardContent sx={{ height: "220px" }}>
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                          {item.description}
-                        </Typography>
-                        <div>
-                          {item.tags.map((tag, tagIndex) => (
-                            <Chip key={tagIndex} label={tag} sx={{ margin: "3px 3px 0 0" }} />
-                          ))}
-                        </div>
-                      </CardContent>
-                      :
-                      <>
-                        <CardMedia
-                          component="img"
-                          height="220"
-                          image={item.image}
-                          alt={item.title}
-                          sx={{ objectFit: "contain" }}
-                        />
+              <Grid item xs={12} sm={6} key={index} sx={{ padding: { xs: "0 16px", lg: 0 }, margin: { xs: "0 16px", sm: 0 } }}>
+                <Link href={item.url} target="_blank" style={{ textDecoration: "none" }}>
+                  <Card sx={{ maxWidth: { xs: "-webkit-fill-available", sm: "220" }, height: "280px" }}>
+                    <CardActionArea
+                      onMouseOver={handleMouseOver(item.title)}
+                      onMouseOut={handleMouseOut}
+                    >
+                      {isHoveredId == item.title ?
                         <CardContent>
-                          <Typography variant="h6" sx={{ color: 'text.secondary', padding: "0 10px" }}>
-                            {item.title}
+                          <CardMedia
+                            component="img"
+                            height="160"
+                            image={item.image}
+                            alt={item.title}
+                          />
+                          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            {item.description}
                           </Typography>
+                          <div>
+                            {item.tags.map((tag, tagIndex) => (
+                              <Chip key={tagIndex} label={tag} sx={{ margin: "3px 3px 0 0" }} />
+                            ))}
+                          </div>
                         </CardContent>
-                      </>
-                    }
-                  </CardActionArea>
-                </Card>
+                        :
+                        <>
+                          <CardHeader
+                            title={item.title}
+                          />
+                          <CardMedia
+                            component="img"
+                            height="220"
+                            image={item.image}
+                            alt={item.title}
+                          />
+                        </>
+                      }
+                    </CardActionArea>
+                  </Card>
+                </Link>
               </Grid>
             ))
             :
