@@ -11,8 +11,7 @@ import heart from "../../../public/Icons/heart.svg";
 import download from "../../../public/Icons/download.svg";
 import projects from "../../../public/Icons/projects.svg";
 import email from "../../../public/Icons/email.svg";
-import { DndContext, useSensor, useSensors, MouseSensor, TouchSensor, KeyboardSensor } from "@dnd-kit/core";
-import { sortableKeyboardCoordinates } from "@dnd-kit/sortable";
+import { DndContext, useSensor, useSensors, MouseSensor, TouchSensor} from "@dnd-kit/core";
 import { Draggable } from "../../utils/Draggable";
 import { Droppable } from "../../utils/Droppable";
 import { onButtonClick } from "../../utils/utils";
@@ -41,9 +40,6 @@ const Computer = () => {
                 delay: 200,
                 tolerance: 6,
             },
-        }),
-        useSensor(KeyboardSensor, {
-            coordinateGetter: sortableKeyboardCoordinates,
         }),
     );
 
