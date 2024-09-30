@@ -2,6 +2,9 @@ import { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import { IsItMobile } from '@/utils/utils';
 import styles from "@/styles/WindowsLayout.module.css"
+import RemoveIcon from '@mui/icons-material/Remove';
+import CropSquareIcon from '@mui/icons-material/CropSquare';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function WindowLayout({ children, closeWindow, maximizeWindow }) {
     const [isMaximized, setIsMaximized] = useState(true);
@@ -20,9 +23,15 @@ export default function WindowLayout({ children, closeWindow, maximizeWindow }) 
                     <span className={styles.window_title}>Portfolio</span>
                 </div>
                 <div className={styles.controls}>
-                    <button className={styles.minimize}>-</button>
-                    <button className={styles.maximize} onClick={() => { handleMaximize(); maximizeWindow(); }} disabled={isMobile}>□</button>
-                    <button className={styles.close} onClick={closeWindow}>x</button>
+                    <button className={styles.minimize}>
+                        <RemoveIcon fontSize='smaller' />
+                    </button>
+                    <button className={styles.maximize} onClick={() => { handleMaximize(); maximizeWindow(); }} disabled={isMobile}>
+                        <CropSquareIcon fontSize='smaller' />
+                    </button>
+                    <button className={styles.close} onClick={closeWindow}>
+                        <CloseIcon fontSize='smaller' />
+                    </button>
                 </div>
             </Grid>
             {children}

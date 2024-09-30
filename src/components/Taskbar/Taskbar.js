@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Tooltip from '@mui/material/Tooltip';
+import { Menu, MenuItem, Tooltip } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import WidgetsRoundedIcon from '@mui/icons-material/WidgetsRounded';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Image from 'next/image';
-import WidgetsRoundedIcon from '@mui/icons-material/WidgetsRounded';
+import Link from 'next/link';
 import styles from '../../styles/Taskbar.module.css';
 
 export default function Taskbar({ icons, activeComponent }) {
@@ -23,14 +22,16 @@ export default function Taskbar({ icons, activeComponent }) {
     return (
         <div className={styles.taskbar}>
             <div className={styles.taskbarContent}>
-                <WidgetsRoundedIcon
-                    fontSize='large'
-                    sx={{ cursor: "pointer", color: "#d3d3d3", marginRight: "5px" }}
-                    aria-controls={open ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? 'true' : undefined}
-                    onClick={handleClick}
-                />
+                <Tooltip title="Menu">
+                    <WidgetsRoundedIcon
+                        fontSize='large'
+                        sx={{ cursor: "pointer", color: "#63595C", marginRight: "5px" }}
+                        aria-controls={open ? 'basic-menu' : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                        onClick={handleClick}
+                    />
+                </Tooltip>
                 <Menu
                     id="basic-menu"
                     anchorEl={anchorEl}
@@ -48,14 +49,18 @@ export default function Taskbar({ icons, activeComponent }) {
                         'aria-labelledby': 'basic-button',
                     }}
                 >
-                    <MenuItem onClick={handleClose}>
-                        <LinkedInIcon />
-                        LinkedIn
-                    </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                        <GitHubIcon />
-                        GitHub
-                    </MenuItem>
+                    <Link href="https://www.linkedin.com/in/catherine-mejias/" target="_blank" className={styles.menu_item}>
+                        <MenuItem onClick={handleClose}>
+                            <LinkedInIcon />
+                            LinkedIn
+                        </MenuItem>
+                    </Link>
+                    <Link href="https://github.com/cathydev" target="_blank" className={styles.menu_item}>
+                        <MenuItem onClick={handleClose}>
+                            <GitHubIcon />
+                            GitHub
+                        </MenuItem>
+                    </Link>
                 </Menu>
                 {activeComponent.length > 0 &&
                     <>

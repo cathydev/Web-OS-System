@@ -16,8 +16,7 @@
 .open_window {
   width: auto;
   padding: 5px 10px;
-  background: #d3d3d3ad;
-  color: #000;
+  background: #63595C;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -26,4 +25,9 @@
 
 .open_window > span {
   margin: 0 5px;
+}
+
+.menu_item {
+  text-decoration: none;
+  color: #000;
 }
