@@ -9,14 +9,3 @@ export const onButtonClick = () => {
     link.click();
     document.body.removeChild(link);
 };
-
-export const IsItMobile = () => {
-    const [isMobile, setIsMobile] = useState(false);
-    const isMobileDevice = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-  
-    useEffect(() => {
-      setIsMobile(isMobileDevice());
-    }, []);
-  
-    return isMobile;
-  };

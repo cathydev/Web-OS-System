@@ -11,14 +11,16 @@ import heart from "../../../public/Icons/heart.svg";
 import download from "../../../public/Icons/download.svg";
 import projects from "../../../public/Icons/projects.svg";
 import email from "../../../public/Icons/email.svg";
-import { DndContext, useSensor, useSensors, MouseSensor, TouchSensor} from "@dnd-kit/core";
+import { DndContext, useSensor, useSensors, MouseSensor, TouchSensor } from "@dnd-kit/core";
 import { Draggable } from "../../utils/Draggable";
 import { Droppable } from "../../utils/Droppable";
 import { onButtonClick } from "../../utils/utils";
+import {isMobile} from 'react-device-detect';
+
 import Taskbar from '@/components/Taskbar/Taskbar'
 
 const Computer = () => {
-    const [activeComponent, setActiveComponent] = useState([{ id: 'Projects', position: { x: 0, y: 0 } }]);
+    const [activeComponent, setActiveComponent] = useState(isMobile ? [] : [{ id: 'Projects', position: { x: 0, y: 0 } }]);
     const [isMaximized, setIsMaximized] = useState(false);
 
     const maximizeToggle = () => {
@@ -92,7 +94,7 @@ const Computer = () => {
                 <div className="container">
                     <div className="base">
                         <div className={styles.screen}>
-                            {activeComponent.length > 0 &&
+                            {activeComponent && activeComponent.length > 0 &&
                                 <Draggable
                                     styles={{
                                         position: "absolute",
@@ -103,10 +105,10 @@ const Computer = () => {
                                     key={activeComponent[0].id}
                                     id={activeComponent[0].id}
                                 >
-                                    {activeComponent[0].id === 'Projects' && <Projects close={() => toggleComponent('Projects')} maximize={() => maximizeToggle()}/>}
-                                    {activeComponent[0].id === 'About Me' && <AboutMe close={() => toggleComponent('About Me')} maximize={() => maximizeToggle()}/>}
-                                    {activeComponent[0].id === 'Contact Me' && <ContactMe close={() => toggleComponent('Contact Me')} maximize={() => maximizeToggle()}/>}
-                                    {activeComponent[0].id === 'Thank You' && <ThankYou close={() => toggleComponent('Thank You')} maximize={() => maximizeToggle()}/>}
+                                    {activeComponent[0].id === 'Projects' && <Projects close={() => toggleComponent('Projects')} maximize={() => maximizeToggle()} />}
+                                    {activeComponent[0].id === 'About Me' && <AboutMe close={() => toggleComponent('About Me')} maximize={() => maximizeToggle()} />}
+                                    {activeComponent[0].id === 'Contact Me' && <ContactMe close={() => toggleComponent('Contact Me')} maximize={() => maximizeToggle()} />}
+                                    {activeComponent[0].id === 'Thank You' && <ThankYou close={() => toggleComponent('Thank You')} maximize={() => maximizeToggle()} />}
                                 </Draggable>
                             }
                             <div>

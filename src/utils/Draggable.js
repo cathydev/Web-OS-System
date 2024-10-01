@@ -1,5 +1,5 @@
 import { useDraggable } from "@dnd-kit/core";
-import { IsItMobile } from "./utils";
+import {isMobile} from 'react-device-detect';
 
 const CustomStyle = {
   width: "auto",
@@ -7,7 +7,6 @@ const CustomStyle = {
 };
 
 export function Draggable({ id, children, styles, disabled }) {
-  const isMobile = IsItMobile();
 
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id,

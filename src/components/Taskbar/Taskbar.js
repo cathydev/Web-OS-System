@@ -62,7 +62,7 @@ export default function Taskbar({ icons, activeComponent }) {
                         </MenuItem>
                     </Link>
                 </Menu>
-                {activeComponent.length > 0 &&
+                {activeComponent && activeComponent.length > 0 &&
                     <>
                         {icons.map((item, index) => (
                             item.title === activeComponent[0].id && (

@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import Grid from '@mui/material/Grid';
-import { IsItMobile } from '@/utils/utils';
 import styles from "@/styles/WindowsLayout.module.css"
 import RemoveIcon from '@mui/icons-material/Remove';
 import CropSquareIcon from '@mui/icons-material/CropSquare';
 import CloseIcon from '@mui/icons-material/Close';
+import {isMobile} from 'react-device-detect';
 
 export default function WindowLayout({ children, closeWindow, maximizeWindow }) {
     const [isMaximized, setIsMaximized] = useState(true);
-    const isMobile = IsItMobile();
 
     const handleMaximize = () => {
         setIsMaximized(!isMaximized);
