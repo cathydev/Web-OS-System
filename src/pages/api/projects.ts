@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (req.method === 'GET') {
-      const projects = await sql`SELECT * FROM projects`;
+      const projects = await sql`SELECT * FROM projects ORDER BY ID ASC`;
       return res.status(200).json({ projects });
     } else {
       return res.status(405).json({ error: 'Method not allowed' });
