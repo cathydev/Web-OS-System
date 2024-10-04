@@ -28,7 +28,7 @@ const Computer = () => {
     }
 
     const toggleComponent = (component) => {
-        setActiveComponent(activeComponent[0].id === component ? [] : component);
+        setActiveComponent(activeComponent[0].id === component ? [{ position: { x: 0, y: 0 } }] : component);
     };
 
     const sensors = useSensors(
