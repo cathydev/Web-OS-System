@@ -20,17 +20,16 @@ import {isMobile} from 'react-device-detect';
 import Taskbar from '@/components/Taskbar/Taskbar'
 
 const Computer = () => {
-    const [activeComponent, setActiveComponent] = useState(isMobile ? [] : [{ id: 'Projects', position: { x: 0, y: 0 } }]);
-    const [isMaximized, setIsMaximized] = useState(false);
+    const [activeComponent, setActiveComponent] = useState(isMobile ? [] : [{ id: 'Projects', position: { x: 0, y: 0 }, isMaximized: false }]);
 
-    const maximizeToggle = () => {
-        setIsMaximized(!isMaximized)
-    }
-
-    const toggleComponent = (component) => {
-        setActiveComponent(activeComponent[0].id === component ? [{ position: { x: 0, y: 0 } }] : component);
+    const maximizeToggle = (component) => {
+        setActiveComponent(activeComponent[0].id === component ? [{ ...activeComponent[0], isMaximized: !activeComponent[0].isMaximized }] : component);
     };
 
+    const toggleComponent = (component) => {
+        setActiveComponent(activeComponent[0].id === component ? [{ position: { x: 0, y: 0 }, isMaximized: false }] : component);
+    };
+console.log(activeComponent)
     const sensors = useSensors(
         useSensor(MouseSensor, {
             activationConstraint: {
@@ -98,17 +97,21 @@ const Computer = () => {
                                 <Draggable
                                     styles={{
                                         position: "absolute",
-                                        left: isMaximized ? "0px" : `${activeComponent[0].position.x}px`,
-                                        top: isMaximized ? "0px" : `${activeComponent[0].position.y}px`,
-                                        zIndex: "100"
+                                        left: activeComponent[0].isMaximized
+                                            ? "0px"
+                                            : `${activeComponent[0].position.x}px`,
+                                        top: activeComponent[0].isMaximized
+                                            ? "0px"
+                                            : `${activeComponent[0].position.y}px`,
+                                        zIndex: "100",
                                     }}
                                     key={activeComponent[0].id}
                                     id={activeComponent[0].id}
                                 >
-                                    {activeComponent[0].id === 'Projects' && <Projects close={() => toggleComponent('Projects')} maximize={() => maximizeToggle()} />}
-                                    {activeComponent[0].id === 'About Me' && <AboutMe close={() => toggleComponent('About Me')} maximize={() => maximizeToggle()} />}
-                                    {activeComponent[0].id === 'Contact Me' && <ContactMe close={() => toggleComponent('Contact Me')} maximize={() => maximizeToggle()} />}
-                                    {activeComponent[0].id === 'Thank You' && <ThankYou close={() => toggleComponent('Thank You')} maximize={() => maximizeToggle()} />}
+                                    {activeComponent[0].id === 'Projects' && <Projects close={() => toggleComponent('Projects')} maximize={() => maximizeToggle('Projects')} />}
+                                    {activeComponent[0].id === 'About Me' && <AboutMe close={() => toggleComponent('About Me')} maximize={() => maximizeToggle('About Me')} />}
+                                    {activeComponent[0].id === 'Contact Me' && <ContactMe close={() => toggleComponent('Contact Me')} maximize={() => maximizeToggle('Contact Me')} />}
+                                    {activeComponent[0].id === 'Thank You' && <ThankYou close={() => toggleComponent('Thank You')} maximize={() => maximizeToggle('Thank You')} />}
                                 </Draggable>
                             }
                             <div>
