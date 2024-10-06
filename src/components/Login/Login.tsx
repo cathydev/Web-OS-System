@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import styles from "../../styles/Login.module.css";
 
-const Login = ({ mount }) => {
+const Login = ({ mount } : { mount: () => void }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   const setCurrentTimeMemo = useMemo(() => {
