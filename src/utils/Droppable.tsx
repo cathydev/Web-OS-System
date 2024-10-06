@@ -5,7 +5,7 @@ const CustomStyle = {
   height: "inherit",
 };
 
-export function Droppable({ children }) {
+export function Droppable({ children } : {children: JSX.Element}) {
   const { setNodeRef } = useDroppable({
     id: "droppable"
   });

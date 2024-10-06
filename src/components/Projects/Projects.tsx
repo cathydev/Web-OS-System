@@ -10,7 +10,7 @@ interface ProjectData {
   tags: string[];
 }
 
-const Projects = ({ close, maximize }: {close:boolean, maximize:boolean}) => {
+const Projects = ({ close, maximize }: {close: () => void, maximize: () => void}) => {
   const [isHoveredId, setIsHoveredId] = useState('');
   const [projectsData, setProjectsData] = useState<ProjectData[]>([]);
 

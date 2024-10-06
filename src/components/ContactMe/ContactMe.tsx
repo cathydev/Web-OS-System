@@ -3,7 +3,7 @@ import { Grid, TextField, Button, Container, Box, Snackbar, Alert, SnackbarClose
 import WindowLayout from "../WindowLayout/WindowLayout";
 import styles from "../../styles/ContactMe.module.css";
 
-const ContactMe = ({ close, maximize }: {close:boolean, maximize:boolean}) => {
+const ContactMe = ({ close, maximize }: { close: () => void, maximize: () => void }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
@@ -36,14 +36,10 @@ const ContactMe = ({ close, maximize }: {close:boolean, maximize:boolean}) => {
         setOpen(true)
     };
 
-    const handleClose = (
-        event: React.SyntheticEvent | Event,
-        reason?: SnackbarCloseReason,
-    ) => {
+    const handleClose = (event: React.SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
         if (reason === 'clickaway') {
             return;
         }
-
         setOpen(false);
     };
 
