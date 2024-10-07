@@ -2,10 +2,17 @@ import { useState, useEffect } from "react";
 import WindowLayout from "../WindowLayout/WindowLayout";
 import { Grid, Card, CardContent, CardMedia, Typography, CardActionArea, Chip, CircularProgress, CardHeader, Box } from '@mui/material';
 import Link from "next/link";
+interface ProjectData {
+  title: string;
+  image: string;
+  description: string;
+  url: string;
+  tags: string[];
+}
 
-const Projects = ({ close, maximize }) => {
+const Projects = ({ close, maximize }: {close: () => void, maximize: () => void}) => {
   const [isHoveredId, setIsHoveredId] = useState('');
-  const [projectsData, setProjectsData] = useState();
+  const [projectsData, setProjectsData] = useState<ProjectData[]>([]);
 
   useEffect(() => {
     fetch('/api/projects', {
@@ -22,7 +29,9 @@ const Projects = ({ close, maximize }) => {
       })
   }, []);
 
-  function handleMouseOver(ID) {
+  const hasProjects = projectsData.length > 0;
+
+  function handleMouseOver(ID: string) {
     return () => {
       setIsHoveredId(ID);
     }
@@ -34,9 +43,9 @@ const Projects = ({ close, maximize }) => {
 
   return (
     <WindowLayout closeWindow={close} maximizeWindow={maximize}>
-      <Grid container spacing={3} sx={{ padding: "20px", background: "#f0f8ff", height: projectsData ? "auto" : "100%" }}>
+      <Grid container spacing={3} sx={{ padding: "20px", background: "#f0f8ff", height: hasProjects ? "auto" : "100%" }}>
         {
-          projectsData ?
+          hasProjects ?
             projectsData.map((item, index) => (
               <Grid item xs={12} sm={6} key={index} sx={{ padding: { xs: "0 16px", lg: 0 }, margin: { xs: "0 16px", sm: 0 } }}>
                 <Link href={item.url} target="_blank" style={{ textDecoration: "none" }}>

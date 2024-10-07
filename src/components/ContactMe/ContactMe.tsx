@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import { Grid, TextField, Button, Container, Box, Snackbar, Alert } from '@mui/material';
+import { Grid, TextField, Button, Container, Box, Snackbar, Alert, SnackbarCloseReason } from '@mui/material';
 import WindowLayout from "../WindowLayout/WindowLayout";
 import styles from "../../styles/ContactMe.module.css";
 
-const ContactMe = ({ close, maximize }) => {
+const ContactMe = ({ close, maximize }: { close: () => void, maximize: () => void }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const [open, setOpen] = useState(false);
-    const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(false);
+    const [open, setOpen] = useState<boolean>(false);
+    const [error, setError] = useState<boolean>(false);
+    const [success, setSuccess] = useState<boolean>(false);
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         try {
@@ -36,7 +36,7 @@ const ContactMe = ({ close, maximize }) => {
         setOpen(true)
     };
 
-    const handleClose = (event, reason) => {
+    const handleClose = (event: React.SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
         if (reason === 'clickaway') {
             return;
         }
@@ -104,7 +104,7 @@ const ContactMe = ({ close, maximize }) => {
                                     variant="filled"
                                     sx={{ width: '100%' }}
                                 >
-                                    There was an error sending the message 
+                                    There was an error sending the message
                                 </Alert></Snackbar>}
                         </form>
                     </Container>

@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import styles from "@/styles/WindowsLayout.module.css"
 import RemoveIcon from '@mui/icons-material/Remove';
 import CropSquareIcon from '@mui/icons-material/CropSquare';
 import CloseIcon from '@mui/icons-material/Close';
-import {isMobile} from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 
-export default function WindowLayout({ children, closeWindow, maximizeWindow }) {
+export default function WindowLayout({ children, closeWindow, maximizeWindow }: { children: ReactElement, closeWindow: () => void, maximizeWindow: () => void }) {
     const [isMaximized, setIsMaximized] = useState(true);
 
     const handleMaximize = () => {
@@ -23,13 +23,13 @@ export default function WindowLayout({ children, closeWindow, maximizeWindow }) 
                 </div>
                 <div className={styles.controls}>
                     <button className={styles.minimize}>
-                        <RemoveIcon fontSize='smaller' />
+                        <RemoveIcon sx={{ fontSize: "smaller" }} />
                     </button>
                     <button className={styles.maximize} onClick={() => { handleMaximize(); maximizeWindow(); }} disabled={isMobile}>
-                        <CropSquareIcon fontSize='smaller' />
+                        <CropSquareIcon sx={{ fontSize: "smaller" }} />
                     </button>
                     <button className={styles.close} onClick={closeWindow}>
-                        <CloseIcon fontSize='smaller' />
+                        <CloseIcon sx={{ fontSize: "smaller" }} />
                     </button>
                 </div>
             </Grid>

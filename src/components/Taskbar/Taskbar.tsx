@@ -6,14 +6,24 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/Taskbar.module.css';
+ 
+interface TaskbarProps {
+    icons:  {
+        title: string;
+        src: string;
+        alt: string;
+        onClick: () => void;
+      }[];
+    activeComponent: { id: string }[];
+}
 
-export default function Taskbar({ icons, activeComponent }) {
-    const [anchorEl, setAnchorEl] = useState(null);
+export default function Taskbar({ icons, activeComponent }: TaskbarProps) {
+    const [anchorEl, setAnchorEl] = useState<null | SVGElement>(null);
     const open = Boolean(anchorEl);
-
-    const handleClick = (event) => {
+    
+    const handleClick = (event: React.MouseEvent<SVGElement>) => {
         setAnchorEl(event.currentTarget);
-    };
+      };
 
     const handleClose = () => {
         setAnchorEl(null);
