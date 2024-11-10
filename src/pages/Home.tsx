@@ -8,6 +8,30 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const postData = async () => {
+      const username = process.env.NEXT_PUBLIC_CORREOS_USERNAME;
+      const password = process.env.NEXT_PUBLIC_CORREOS_PASSWORD;
+      const base64encodedData = btoa(`${username}:${password}`);
+
+      fetch('/api/proxy', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+          "Authorization": `Basic ${base64encodedData}`,
+        },
+        body: JSON.stringify({
+          solicitante: "yo",
+         
+        }),
+      }).then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
+    };
+    postData();
+  }, []);
+
+
+  useEffect(() => {
     if (isMounted) {
       setLoading(true);
       setTimeout(() => {
