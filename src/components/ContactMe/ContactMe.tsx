@@ -48,7 +48,6 @@ const ContactMe = ({ close, maximize }: { close: () => void, maximize: () => voi
             <Box className={styles.container}>
                 <Grid item xs={12} md={6} sx={{ padding: "16px", flex: "none" }}>
                     <h1>Contact Me! Let&apos;s chat about your project or just connect!</h1>
-                    <span> You can reach me at <a href="mailto:catherinemejiasdsilva@gmail.com">catherinemejiasdsilva@gmail.com</a> 💫</span>
                 </Grid>
                 <Grid item xs={12} md={6} sx={{ padding: "16px", flex: "none" }}>
                     <Container maxWidth="sm">

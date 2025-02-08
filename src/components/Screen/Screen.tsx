@@ -76,28 +76,22 @@ const Computer = () => {
 
   const icons = [
     {
-      title: 'About Me',
+      title: 'Profile',
       src: portrait,
       alt: 'My custom SVG',
       onClick: () => setActiveComponent([{ id: 'About Me', position: { x: 0, y: 0 }, isMaximized: false }]),
     },
     {
-      title: 'Projects',
+      title: 'File Explorer',
       src: projects,
       alt: 'projects illustration',
       onClick: () => setActiveComponent([{ id: 'Projects', position: { x: 0, y: 0 }, isMaximized: false }]),
     },
     {
-      title: 'Contact Me',
+      title: 'Mail',
       src: email,
       alt: 'email illustration',
       onClick: () => setActiveComponent([{ id: 'Contact Me', position: { x: 0, y: 0 }, isMaximized: false }]),
-    },
-    {
-      title: 'Download CV',
-      src: download,
-      alt: 'download icon',
-      onClick: onButtonClick,
     },
     {
       title: 'Thank You',

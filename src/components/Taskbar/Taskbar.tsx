@@ -62,13 +62,13 @@ export default function Taskbar({ icons, activeComponent }: TaskbarProps) {
                     <Link href="https://www.linkedin.com/in/catherine-mejias/" target="_blank" className={styles.menu_item}>
                         <MenuItem onClick={handleClose}>
                             <LinkedInIcon />
-                            LinkedIn
+                           My LinkedIn
                         </MenuItem>
                     </Link>
                     <Link href="https://github.com/cathydev" target="_blank" className={styles.menu_item}>
                         <MenuItem onClick={handleClose}>
                             <GitHubIcon />
-                            GitHub
+                            My GitHub
                         </MenuItem>
                     </Link>
                 </Menu>

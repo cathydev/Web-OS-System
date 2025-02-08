@@ -19,7 +19,7 @@ export default function WindowLayout({ children, closeWindow, maximizeWindow }: 
         <Grid container spacing={2} className={styles.container} sx={{ ...gridSize }}>
             <Grid item xs={12} className={styles.nav}>
                 <div className={styles.title}>
-                    <span className={styles.window_title}>Portfolio</span>
+                    <span className={styles.window_title}></span>
                 </div>
                 <div className={styles.controls}>
                     <button className={styles.minimize}>

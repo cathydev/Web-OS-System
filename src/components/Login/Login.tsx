@@ -27,7 +27,7 @@ const Login = ({ mount } : { mount: () => void }) => {
                 minute: "2-digit",
               })}
             </span>
-            <span className={styles.welcome}>Welcome to my portfolio</span>
+            <span className={styles.welcome}>Welcome</span>
             <button onClick={mount} className={styles.cto}>
               Login
             </button>
