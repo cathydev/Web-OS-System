@@ -8,9 +8,10 @@ import ThankYou from "../ThankYou/ThankYou";
 import Image from 'next/image';
 import portrait from "../../../public/Icons/portrait.svg";
 import heart from "../../../public/Icons/heart.svg";
-import download from "../../../public/Icons/download.svg";
+import ide from "../../../public/Icons/ide.svg";
 import projects from "../../../public/Icons/projects.svg";
 import email from "../../../public/Icons/email.svg";
+import config from "../../../public/Icons/conf.svg";
 import { DndContext, useSensor, useSensors, MouseSensor, TouchSensor, UniqueIdentifier } from "@dnd-kit/core";
 import { Draggable } from "../../utils/Draggable";
 import { Droppable } from "../../utils/Droppable";
@@ -82,21 +83,33 @@ const Computer = () => {
       onClick: () => setActiveComponent([{ id: 'About Me', position: { x: 0, y: 0 }, isMaximized: false }]),
     },
     {
-      title: 'File Explorer',
-      src: projects,
-      alt: 'projects illustration',
-      onClick: () => setActiveComponent([{ id: 'Projects', position: { x: 0, y: 0 }, isMaximized: false }]),
-    },
-    {
       title: 'Mail',
       src: email,
       alt: 'email illustration',
       onClick: () => setActiveComponent([{ id: 'Contact Me', position: { x: 0, y: 0 }, isMaximized: false }]),
     },
     {
+      title: 'File Explorer',
+      src: projects,
+      alt: 'projects illustration',
+      onClick: () => setActiveComponent([{ id: 'Projects', position: { x: 0, y: 0 }, isMaximized: false }]),
+    },
+    {
       title: 'Thank You',
       src: heart,
       alt: 'a heart',
+      onClick: () => setActiveComponent([{ id: 'Thank You', position: { x: 0, y: 0 }, isMaximized: false }]),
+    },
+    {
+      title: 'Configuration',
+      src: config,
+      alt: 'configuration icon',
+      onClick: () => setActiveComponent([{ id: 'Thank You', position: { x: 0, y: 0 }, isMaximized: false }]),
+    },
+    {
+      title: 'Text Editor',
+      src: ide,
+      alt: 'IDE icon',
       onClick: () => setActiveComponent([{ id: 'Thank You', position: { x: 0, y: 0 }, isMaximized: false }]),
     },
   ];
