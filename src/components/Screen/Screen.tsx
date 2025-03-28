@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from "../../styles/screen.module.css";
 import Tooltip from '@mui/material/Tooltip';
-import Projects from "../Projects/Projects";
+import FileExplorer from "../FileExplorer/FileExplorer";
 import AboutMe from "../AboutMe/AboutMe";
 import ContactMe from "../ContactMe/ContactMe";
 import ThankYou from "../ThankYou/ThankYou";
@@ -39,7 +39,7 @@ interface DragEndEvent {
 }
 
 const Computer = () => {
-  const [activeComponent, setActiveComponent] = useState<Component[]>(isMobile ? [] : [{ id: 'Projects', position: { x: 0, y: 0 }, isMaximized: false }]);
+  const [activeComponent, setActiveComponent] = useState<Component[]>(isMobile ? [] : [{ id: 'FileExplorer', position: { x: 0, y: 0 }, isMaximized: false }]);
 
   const maximizeToggle = (component: string) => {
     setActiveComponent(activeComponent[0].id === component ? [{ ...activeComponent[0], isMaximized: !activeComponent[0].isMaximized }] : { ...activeComponent });
@@ -92,7 +92,7 @@ const Computer = () => {
       title: 'File Explorer',
       src: projects,
       alt: 'projects illustration',
-      onClick: () => setActiveComponent([{ id: 'Projects', position: { x: 0, y: 0 }, isMaximized: false }]),
+      onClick: () => setActiveComponent([{ id: 'FileExplorer', position: { x: 0, y: 0 }, isMaximized: false }]),
     },
     {
       title: 'Thank You',
@@ -136,7 +136,7 @@ const Computer = () => {
                   id={activeComponent[0].id}
                 >
                   <>
-                    {activeComponent[0].id === 'Projects' && <Projects close={() => toggleComponent('Projects')} maximize={() => maximizeToggle('Projects')} />}
+                    {activeComponent[0].id === 'FileExplorer' && <FileExplorer close={() => toggleComponent('FileExplorer')} maximize={() => maximizeToggle('FileExplorer')} />}
                     {activeComponent[0].id === 'About Me' && <AboutMe close={() => toggleComponent('About Me')} maximize={() => maximizeToggle('About Me')} />}
                     {activeComponent[0].id === 'Contact Me' && <ContactMe close={() => toggleComponent('Contact Me')} maximize={() => maximizeToggle('Contact Me')} />}
                     {activeComponent[0].id === 'Thank You' && <ThankYou close={() => toggleComponent('Thank You')} maximize={() => maximizeToggle('Thank You')} />}
