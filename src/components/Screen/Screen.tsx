@@ -5,6 +5,7 @@ import FileExplorer from "../FileExplorer/FileExplorer";
 import AboutMe from "../AboutMe/AboutMe";
 import ContactMe from "../ContactMe/ContactMe";
 import ThankYou from "../ThankYou/ThankYou";
+import Editor from "../Editor/Editor";
 import Image from 'next/image';
 import portrait from "../../../public/Icons/portrait.svg";
 import heart from "../../../public/Icons/heart.svg";
@@ -77,7 +78,7 @@ const Computer = () => {
 
   const icons = [
     {
-      title: 'Profile',
+      title: 'About',
       src: portrait,
       alt: 'My custom SVG',
       onClick: () => setActiveComponent([{ id: 'About Me', position: { x: 0, y: 0 }, isMaximized: false }]),
@@ -100,7 +101,7 @@ const Computer = () => {
       alt: 'a heart',
       onClick: () => setActiveComponent([{ id: 'Thank You', position: { x: 0, y: 0 }, isMaximized: false }]),
     },
-    {
+/*     {
       title: 'Configuration',
       src: config,
       alt: 'configuration icon',
@@ -110,8 +111,8 @@ const Computer = () => {
       title: 'Text Editor',
       src: ide,
       alt: 'IDE icon',
-      onClick: () => setActiveComponent([{ id: 'Thank You', position: { x: 0, y: 0 }, isMaximized: false }]),
-    },
+      onClick: () => setActiveComponent([{ id: 'Editor', position: { x: 0, y: 0 }, isMaximized: false }]),
+    }, */
   ];
 
   return (
@@ -140,6 +141,7 @@ const Computer = () => {
                     {activeComponent[0].id === 'About Me' && <AboutMe close={() => toggleComponent('About Me')} maximize={() => maximizeToggle('About Me')} />}
                     {activeComponent[0].id === 'Contact Me' && <ContactMe close={() => toggleComponent('Contact Me')} maximize={() => maximizeToggle('Contact Me')} />}
                     {activeComponent[0].id === 'Thank You' && <ThankYou close={() => toggleComponent('Thank You')} maximize={() => maximizeToggle('Thank You')} />}
+                    {activeComponent[0].id === 'Editor' && <Editor close={() => toggleComponent('Editor')} maximize={() => maximizeToggle('Editor')} />}
                   </>
                 </Draggable>
               }

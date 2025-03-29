@@ -3,7 +3,7 @@ import WindowLayout from "../WindowLayout/WindowLayout";
 import styles from "../../styles/ThankYou.module.css";
 import Image from 'next/image';
 
-const ContactMe = ({ close, maximize } : { close: () => void, maximize: () => void }) => {
+const ThankYou = ({ close, maximize } : { close: () => void, maximize: () => void }) => {
     return (
         <WindowLayout closeWindow={close} maximizeWindow={maximize}>
             <Grid item xs={12} className={styles.container} sx={{ flexDirection: "column", padding: "0 16px" }}>
@@ -22,4 +22,4 @@ const ContactMe = ({ close, maximize } : { close: () => void, maximize: () => vo
     );
 };
 
-export default ContactMe;
+export default ThankYou;
